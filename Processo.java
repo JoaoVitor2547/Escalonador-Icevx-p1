@@ -12,4 +12,12 @@ public class Processo{
     this.ciclosNecessarios = ciclosNecessarios;
     this.recursosNecessarios = recursosNecessarios;}
 
+    public void imprimir(){
+        System.out.println("nome:" + nome + 
+                                       ",ID: " + id +
+                                       ",Prioridade: " + prioridade +
+                                       ",Ciclos: " + ciclosNecessarios +
+                                       ",Recurso: " +recursosNecessarios);
+    }
+
 }
