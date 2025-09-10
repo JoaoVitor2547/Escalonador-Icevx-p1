@@ -10,23 +10,11 @@ public class Processo{
     this.nome = nome;
     this.prioridade = prioridade;
     this.ciclosNecessarios = ciclosNecessarios;
-    this.recursosNecessarios = recursosNecessarios;}
-
-    public void imprimir(){
-        System.out.println("nome:" + nome + 
-                                       ",ID: " + id +
-                                       ",Prioridade: " + prioridade +
-                                       ",Ciclos: " + ciclosNecessarios +
-                                       ",Recurso: " +recursosNecessarios);
-    }
-
+    this.recursosNecessarios = recursosNecessarios;
 }
-class Node {
-    Processo processo;
-    Node proximo;
-
-    public Node(Processo processo) {
-        this.processo = processo;
-        this.proximo = null;
+@Override
+    public String toString() {
+        return "[P" + id + " - " + nome + " | Prioridade: " + prioridade + " | Ciclos: " + ciclosNecessarios + "]";
     }
 }
+   
