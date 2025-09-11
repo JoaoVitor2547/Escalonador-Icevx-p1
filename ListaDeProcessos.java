@@ -25,5 +25,36 @@ public class ListaDeProcessos {
         tamanho++;
     }
     
+    public Processo removerDoInicio() {
+        if (estaVazia()) {
+            return null;
+        }
+        Processo p = inicio.processo;
+        inicio = inicio.next;
+        if (inicio == null) {
+            fim = null; 
+        }
+        tamanho--;
+        return p;
+    }
+
+    
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    
+    public void imprimirLista() {
+        if (estaVazia()) {
+            System.out.println("[Lista vazia] (Tamanho: 0)");
+            return;
+        }
+        Node atual = inicio;
+        while (atual != null) {
+            System.out.print(atual.processo + " -> ");
+            atual = atual.next;
+        }
+        System.out.println("null (Tamanho: " + tamanho + ")");
+    }
 }
 
