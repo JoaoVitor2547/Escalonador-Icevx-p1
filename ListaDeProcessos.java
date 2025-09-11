@@ -44,11 +44,12 @@ public class ListaDeProcessos {
     }
 
     
-    public void imprimirLista() {
+    public void imprimirLista(String nomeLista) {
         if (estaVazia()) {
-            System.out.println("[Lista vazia] (Tamanho: 0)");
+            System.out.println(nomeLista + ": [Lista vazia] (Tamanho: 0)");
             return;
         }
+        System.out.print(nomeLista + ": ");
         Node atual = inicio;
         while (atual != null) {
             System.out.print(atual.processo + " -> ");
