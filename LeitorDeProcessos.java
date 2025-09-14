@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class LeitorDeProcessos {
 
-    public static void carregarArquivo(String caminho, Controlador controlador) {
+    public static void carregarArquivo(String caminho, Scheduler Scheduler) {
         try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -18,7 +18,7 @@ public class LeitorDeProcessos {
                 String recurso = partes[4].equals("-") ? null : partes[4];
 
                 Processo p = new Processo(id, nome, prioridade, ciclos, recurso, false);
-                controlador.adicionarProcesso(p);
+                Scheduler.adicionarProcesso(p);
             }
             System.out.println("Processos carregados com sucesso!");
         } catch (IOException e) {

@@ -1,4 +1,4 @@
-    public class Controlador {
+    public class Scheduler {
     private ListaDuplamente alta = new ListaDuplamente();
     private ListaDuplamente media = new ListaDuplamente();
     private ListaDuplamente bloqueados = new ListaDuplamente();
