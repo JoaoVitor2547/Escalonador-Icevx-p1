@@ -4,6 +4,7 @@ public class Processo{
     int prioridade;
     int ciclosNecessarios;
     String recursosNecessarios;
+    public boolean jaBloqueado;
 
     public Processo (int id, String nome, int prioridade, int ciclosNecessarios, String recursosNecessarios){
     this.id = id;
@@ -11,6 +12,7 @@ public class Processo{
     this.prioridade = prioridade;
     this.ciclosNecessarios = ciclosNecessarios;
     this.recursosNecessarios = recursosNecessarios;
+    this.jaBloqueado = jaBloqueado;
 }
 @Override
     public String toString() {
