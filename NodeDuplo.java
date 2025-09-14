@@ -9,4 +9,3 @@ public class NodeDuplo {
         this.before = null;
     }
 }
-NodeDuplo.java
