@@ -2,7 +2,7 @@
     private ListaDuplamente alta = new ListaDuplamente();
     private ListaDuplamente media = new ListaDuplamente();
     private ListaDuplamente bloqueados = new ListaDuplamente();
-    private ListaCircular baixa = new ListaCircular();
+    private ListaDeProcessos baixa = new ListaDeProcessos();
     private int contadorAlta = 0;
 
     public void adicionarProcesso(Processo p) {
@@ -11,7 +11,7 @@
         } else if (p.prioridade == 2) {
             media.inserirNoFim(p);
         } else {
-            baixa.inserir(p);
+            baixa.inserirNoFim(p);
         }
     }
 
@@ -29,7 +29,7 @@
         if (contadorAlta >= 5) {
             atual = media.removerDoInicio();
             if (atual == null) {
-                atual = baixa.proximo();
+                atual = baixa.removerDoInicio();
             }
             contadorAlta = 0;
         }
@@ -42,7 +42,7 @@
             } else if (!media.estaVazia()) {
                 atual = media.removerDoInicio();
             } else if (!baixa.estaVazia()) {
-                atual = baixa.proximo();
+                atual = baixa.removerDoInicio();
             }
         }
 
@@ -69,7 +69,6 @@
         } else {
             System.out.println("✅ Processo " + atual.nome + " terminou!");
             if (atual.prioridade == 3) {
-                baixa.remover(atual); // remove da lista circular
             }
         }
     }
