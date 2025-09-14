@@ -6,7 +6,7 @@ public class Processo{
     String recursosNecessarios;
     public boolean jaBloqueado;
 
-    public Processo (int id, String nome, int prioridade, int ciclosNecessarios, String recursosNecessarios){
+    public Processo (int id, String nome, int prioridade, int ciclosNecessarios, String recursosNecessarios, boolean jaBloqueado){
     this.id = id;
     this.nome = nome;
     this.prioridade = prioridade;
