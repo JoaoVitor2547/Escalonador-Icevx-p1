@@ -24,7 +24,7 @@ public class ListaDeProcessos {
         }
         tamanho++;
     }
-    
+
     public Processo removerDoInicio() {
         if (estaVazia()) {
             return null;
@@ -32,18 +32,16 @@ public class ListaDeProcessos {
         Processo p = inicio.processo;
         inicio = inicio.next;
         if (inicio == null) {
-            fim = null; 
+            fim = null;
         }
         tamanho--;
         return p;
     }
 
-    
     public int getTamanho() {
         return tamanho;
     }
 
-    
     public void imprimirLista(String nomeLista) {
         if (estaVazia()) {
             System.out.println(nomeLista + ": [Lista vazia] (Tamanho: 0)");
@@ -58,4 +56,3 @@ public class ListaDeProcessos {
         System.out.println("null (Tamanho: " + tamanho + ")");
     }
 }
-
