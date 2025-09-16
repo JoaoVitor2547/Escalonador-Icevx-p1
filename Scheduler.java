@@ -1,8 +1,8 @@
-    public class Scheduler {
-    private ListaDuplamente alta = new ListaDuplamente();
-    private ListaDuplamente media = new ListaDuplamente();
-    private ListaDuplamente bloqueados = new ListaDuplamente();
+public class Scheduler {
+    private ListaDeProcessos alta = new ListaDeProcessos();
+    private ListaDeProcessos media = new ListaDeProcessos();
     private ListaDeProcessos baixa = new ListaDeProcessos();
+    private ListaDeProcessos bloqueados = new ListaDeProcessos();
     private int contadorAlta = 0;
 
     public void adicionarProcesso(Processo p) {
@@ -16,16 +16,16 @@
     }
 
     public void executarCicloDeCPU() {
-        // Primeiro: desbloqueia um processo, se houver
         Processo desbloqueado = bloqueados.removerDoInicio();
         if (desbloqueado != null) {
             System.out.println("🔓 Desbloqueando " + desbloqueado);
+            desbloqueado.jaBloqueado = true;
+            desbloqueado.prioridade = desbloqueado.prioridadeOriginal;
             adicionarProcesso(desbloqueado);
         }
 
         Processo atual = null;
 
-        // Regra de anti-inanição: força execução de média/baixa após 5 de alta
         if (contadorAlta >= 5) {
             atual = media.removerDoInicio();
             if (atual == null) {
@@ -34,7 +34,6 @@
             contadorAlta = 0;
         }
 
-        // Execução normal (alta > média > baixa)
         if (atual == null) {
             if (!alta.estaVazia()) {
                 atual = alta.removerDoInicio();
@@ -51,7 +50,6 @@
             return;
         }
 
-        // Verifica se precisa de DISCO e ainda não foi bloqueado
         if ("DISCO".equals(atual.recursosNecessarios) && !atual.jaBloqueado) {
             System.out.println("💽 Processo " + atual + " precisa de DISCO → indo para bloqueados.");
             atual.jaBloqueado = true;
@@ -59,17 +57,13 @@
             return;
         }
 
-        // Executa um ciclo do processo
         atual.ciclosNecessarios--;
         System.out.println("⚙️ Executando " + atual);
 
-        // Se ainda restam ciclos, volta para a fila de origem
         if (atual.ciclosNecessarios > 0) {
             adicionarProcesso(atual);
         } else {
             System.out.println("✅ Processo " + atual.nome + " terminou!");
-            if (atual.prioridade == 3) {
-            }
         }
     }
 
@@ -81,4 +75,3 @@
         bloqueados.imprimirLista("Bloqueados");
     }
 }
-
