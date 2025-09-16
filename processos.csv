@@ -1,4 +1,3 @@
-id;nome;prioridade;ciclos;recurso
 1;ProcA;1;5;DISCO
 2;ProcB;2;4;-
 3;ProcC;3;3;-
