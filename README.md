@@ -19,8 +19,7 @@ O escalonador é responsável por decidir qual processo utiliza a CPU a cada cic
 ---
 
 ## ⚙️ Estrutura de Dados Utilizadas
-
-De acordo com as regras do trabalho, **nenhuma estrutura de dados pronta da linguagem Java (ArrayList, LinkedList, etc.) foi utilizada.**  
+  
 Todas as listas foram implementadas manualmente com **nós (`Node`) e referências**.
 
 As filas de processos foram divididas assim:
