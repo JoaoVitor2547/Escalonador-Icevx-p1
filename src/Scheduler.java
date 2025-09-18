@@ -1,3 +1,4 @@
+package src;
 public class Scheduler {
     private ListaDeProcessos lista_alta_prioridade = new ListaDeProcessos();
     private ListaDeProcessos lista_media_prioridade = new ListaDeProcessos();

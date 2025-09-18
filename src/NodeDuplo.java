@@ -1,3 +1,4 @@
+package src;
 public class NodeDuplo {
     Processo processo;
     NodeDuplo next;
