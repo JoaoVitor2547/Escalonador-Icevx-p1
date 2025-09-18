@@ -31,7 +31,3 @@ As filas de processos foram divididas assim:
 
 > ⚠️ Decisão de design: As filas de alta, média e bloqueados usam `ListaDuplamente` para permitir navegação em ambos os sentidos, enquanto a de baixa usa `ListaDeProcessos` por ser mais simples e leve.  
 > Essa escolha foi feita propositalmente para comparar o comportamento das duas estruturas no mesmo projeto.
-
----
-
-## 📁 Estrutura do Projeto
