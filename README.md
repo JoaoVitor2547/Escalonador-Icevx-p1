@@ -1,33 +1,50 @@
-# Projeto: Escalonador de Processos com Prevenção de Inanição
+# Escalonador de Processos com Prevenção de Inanição
 
 **Disciplina:** Algoritmos e Estrutura de Dados I  
 **Professor:** Dimmy Magalhães  
-**Integrantes:**
-
-- João Vitor Fernandes de Sousa – 0030696
-- José Torres de Araujo Neto – 0030575
-- Octávio Alves Freire – 0030681
+**Avaliação:** P1 (40% da nota)  
 
 ---
 
-# Descrição do Projeto
+## Integrantes do Grupo
 
-Este projeto implementa um **escalonador de processos com múltiplos níveis de prioridade e prevenção de inanição**, como parte da avaliação P1 da disciplina de Algoritmos e Estrutura de Dados I.
-
-O escalonador é responsável por decidir qual processo utiliza a CPU a cada ciclo, garantindo justiça na execução e impedindo que processos de baixa prioridade sofram **inanição (starvation)**.
+- João Vitor Fernandes de Sousa – 0030696  
+- José Torres de Araujo Neto – 0030575  
+- Octávio Alves Freire – 0030681  
 
 ---
 
-# Estrutura de Dados Utilizadas
+## Descrição do Projeto
 
-Todas as listas foram implementadas manualmente com **nós (`Node`) e referências**.
+Este projeto implementa um **escalonador de processos com múltiplos níveis de prioridade e prevenção de inanição**, como parte da avaliação da disciplina Algoritmos e Estrutura de Dados I.
 
-As filas de processos foram divididas assim:
+O escalonador decide qual processo usa a CPU a cada ciclo, garantindo justiça na execução e impedindo que processos de baixa prioridade sofram **inanição (starvation)**.  
+Também há **gerenciamento de bloqueio de recursos (DISCO)**, simulando entrada e saída de processos que precisam esperar por E/S.
 
-- **Alta prioridade:** `ListaDuplamente`
-- **Média prioridade:** `ListaDuplamente`
-- **Baixa prioridade:** `ListaDeProcessos` (lista simplesmente encadeada)
-- **Bloqueados:** `ListaDuplamente`
+---
 
-> Decisão de design: As filas de alta, média e bloqueados usam `ListaDuplamente` para permitir navegação em ambos os sentidos, enquanto a de baixa usa `ListaDeProcessos` por ser mais simples e leve.  
-> Essa escolha foi feita propositalmente para comparar o comportamento das duas estruturas no mesmo projeto.
+## Estruturas de Dados Utilizadas
+
+Todas as listas foram implementadas manualmente, manipulando diretamente nós (`Node`) e referências, conforme exigido no enunciado.  
+
+As filas foram divididas assim:
+
+| Fila                   | Estrutura utilizada          |
+|------------------------|------------------------------|
+| Alta prioridade        | `ListaDuplamente`            |
+| Média prioridade       | `ListaDuplamente`            |
+| Baixa prioridade       | `ListaDeProcessos` (simples) |
+| Bloqueados             | `ListaDuplamente`            |
+
+-Decisão de design: As filas de alta, média e bloqueados usam `ListaDuplamente` por permitirem remoções intermediárias e navegação nos dois sentidos, enquanto a de baixa usa `ListaDeProcessos` (simples) por ser mais leve e funcionar como FIFO (primeiro a entrar, primeiro a sair).
+
+---
+
+## Como Compilar e Executar
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/SEU-USUARIO/seu-repositorio.git
+
+cd seu-repositorio
